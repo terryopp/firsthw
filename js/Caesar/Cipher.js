@@ -6,7 +6,6 @@ function Cipher() {
             let letter = text[i];
             if (letter.match(/[a-z]/i)) {
                 let code = text.charCodeAt(i);
-                console.log(code);
                 if (code >= 65 && code <= 90) {
                     letter = String.fromCharCode(((code - 65 + amount) % 26) + 65);
                 }
@@ -25,7 +24,6 @@ function Cipher() {
             let letter = text[i];
             if (letter.match(/[a-z]/i)) {
                 let code = text.charCodeAt(i);
-                console.log(code)
                 if (code >= 65 && code <= 90) {
                     let numberLetter = code - 65 - amount;
                     if (numberLetter < 0) {
