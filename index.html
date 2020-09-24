@@ -3,25 +3,29 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Veselov Gleb</title>
+        <title>Caesar Cipher</title>
         <link rel="stylesheet" href="style.css" type="text/css">
 
         <script src="js/Caesar/Cipher.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
-        <div>
-            Введите текст:
-            <input id="text"> <br/>
-            Результат:
-            <input id="output">
+        <div id="workSpace">
+            <h1>Шифр Цезаря</h1>
+            Введите текст: <br/>
+            <input id="text" class="inputs"> <br/>
+            Результат: <br/>
+            <input id="output" class="inputs" readonly>
         </div>
-        <div>
-            Сейчас активна:
+        <div id="options">
+            Сейчас активна: <br/>
             <input type="button" id="type" value="шифровка"> <br/>
             Количество сдвигов: <br/>
-            <input id="amount" value="1">
+            <input id="amount" value="1" size="1">
             <div id="error"></div>
+        </div>
+        <div id="by">
+            Веселов Глеб, УрФУ, 2020
         </div>
     </body>
 </html>
