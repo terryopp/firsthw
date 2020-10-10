@@ -1,8 +1,8 @@
-function Error() {
+function Error() { // Обработка ошибок 
 
-    let error = document.getElementById('error');
+    let error = document.getElementById('error'); // Вывод ошибок
 
-    this.amount = function (value) {
+    this.amount = function (value) { // Обработка количества сдвигов, выявление ошибок
         if (!isNaN(value) && value > 0 && value < 26 && Number.isInteger(value)) {
             error.innerHTML = "";
             return true;
@@ -12,7 +12,7 @@ function Error() {
         }
     } 
 
-    this.input = function (text) {
+    this.input = function (text) { // Обработка введенного текста
         let letter = text[text.length - 1];
         if (letter.match(/^[а-яё]*$/i)) {
             error.innerHTML = "Учтите, что шифрование не поддерживает русский язык";

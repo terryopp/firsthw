@@ -1,6 +1,6 @@
-function Cipher() {      
+function Cipher() { // Шифрование Цезаря
 
-    this.encrypt = function (text, amount) {
+    this.encrypt = function (text, amount) { // Шифровка введенного текста
         let output='';
         for (let i = 0; i < text.length; i++) {
             let letter = text[i];
@@ -18,7 +18,7 @@ function Cipher() {
         return output;
     }
 
-    this.decrypt = function (text, amount) {
+    this.decrypt = function (text, amount) { // Расшифровка введенного текста
         let output='';
         for (let i = 0; i < text.length; i++) {
             let letter = text[i];

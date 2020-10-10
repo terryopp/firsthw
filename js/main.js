@@ -1,16 +1,16 @@
 window.onload = function() {
-    let input = document.getElementById('text');
-    let output = document.getElementById('output');
-    let type = document.getElementById('type');
-    let amount = document.getElementById('amount');
+    let input = document.getElementById('text'); // Ввод текста
+    let output = document.getElementById('output'); // Вывод текста
+    let type = document.getElementById('type'); // Тип шифрования 
+    let amount = document.getElementById('amount'); // Количество сдвигов
 
-    let encrypt = new Cipher();
-    let error = new Error();
+    let encrypt = new Cipher(); // Псевдокласс шифрования
+    let error = new Error(); // Псевдокласс обработки ошибок
 
     let selectedType = true;
     let amountValue = amount.value*1;
 
-    function encryptText() {
+    function encryptText() { // Функция вызова шифрования и обработки ошибок 
         let text = input.value;
         error.input(text);
         if (selectedType) {
@@ -20,7 +20,7 @@ window.onload = function() {
         }
     }
 
-    type.addEventListener("click", () => {
+    type.addEventListener("click", () => { // Смена типа шифрования: шифровка или расшифровка
         selectedType = !selectedType;
         if (selectedType) {
             type.value = 'шифровка';
@@ -30,7 +30,7 @@ window.onload = function() {
         encryptText();
     });
 
-    amount.addEventListener("input", () => {
+    amount.addEventListener("input", () => { // Введение количества сдвигов
         if (error.amount(amount.value*1)) {
             amountValue = amount.value*1;
             encryptText();
@@ -39,7 +39,7 @@ window.onload = function() {
         }
     });
 
-    input.addEventListener("input", () => {
+    input.addEventListener("input", () => { // Реактивный отклик на введение текста
         encryptText();
     });
 }
