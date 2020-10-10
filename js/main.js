@@ -3,15 +3,16 @@ window.onload = function() {
     let output = document.getElementById('output');
     let type = document.getElementById('type');
     let amount = document.getElementById('amount');
-    let error = document.getElementById('error');
 
     let encrypt = new Cipher();
+    let error = new Error();
 
     let selectedType = true;
     let amountValue = amount.value*1;
 
     function encryptText() {
         let text = input.value;
+        error.input(text);
         if (selectedType) {
             output.value = encrypt.encrypt(text, amountValue);
         } else {
@@ -30,13 +31,11 @@ window.onload = function() {
     });
 
     amount.addEventListener("input", () => {
-        if (!isNaN(amount.value*1) && amount.value*1 > 0 && amount.value*1 < 26 && Number.isInteger(amount.value*1)) {
+        if (error.amount(amount.value*1)) {
             amountValue = amount.value*1;
-            error.innerHTML = "";
             encryptText();
         } else {
             amount.value = "";
-            error.innerHTML = "Пожалуйста, введите целое число от 1 до 26"
         }
     });
 
