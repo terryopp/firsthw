@@ -14,10 +14,12 @@ function Error() { // Обработка ошибок
 
     this.input = function (text) { // Обработка введенного текста
         let letter = text[text.length - 1];
-        if (letter.match(/^[а-яё]*$/i)) {
-            error.innerHTML = "Учтите, что шифрование не поддерживает русский язык";
-        } else {
-            error.innerHTML = "";
-        }
+        try {
+            if (letter.match(/^[а-яё]*$/i)) {
+                error.innerHTML = "Учтите, что шифрование не поддерживает русский язык";
+            } else {
+                error.innerHTML = "";
+            }
+        } catch (e) {}
     }
 }
